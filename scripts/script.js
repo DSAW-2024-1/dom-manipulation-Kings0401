@@ -1,33 +1,72 @@
-function addTask() {
-    const input = document.getElementById("taskInput");
-    const taskText = input.value.trim();
+const nuevaTarea = document.getElementById("nueva-tarea");
+const agregarTarea = document.getElementById("agregar-tarea");
+const listaTareas = document.getElementById("lista-tareas");
 
-    if (taskText !== "") {
-        const taskList = document.getElementById("taskList");
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <input type="checkbox" onchange="toggleTaskCompletion(this)">
-            <span>${taskText}</span>
-            <button onclick="deleteTask(this)">Eliminar</button>
-        `;
-        taskList.appendChild(li);
-        input.value = "";
+listaTareas.innerHTML = "";
+
+// Función para agregar una nueva tarea
+function agregarNuevaTarea() {
+    const nombreTarea = nuevaTarea.value;
+    if (nombreTarea === "") {
+        return;
     }
+
+    // Crear un nuevo elemento "li"
+    const li = document.createElement("li");
+    li.classList.add("tarea");
+
+    // Crear una casilla de verificación
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = `tarea-${listaTareas.children.length + 1}`;
+
+    // Crear una etiqueta para el nombre de la tarea
+    const label = document.createElement("label");
+    label.setAttribute("for", checkbox.id);
+    label.textContent = nombreTarea;
+
+    // Crear un botón para eliminar la tarea
+    const eliminar = document.createElement("button");
+    eliminar.classList.add("eliminar");
+    eliminar.textContent = "Eliminar";
+
+    // Agregar la casilla, la etiqueta y el botón al elemento "li"
+    li.appendChild(checkbox);
+    li.appendChild(label);
+    li.appendChild(eliminar);
+
+    // Agregar el elemento "li" a la lista de tareas
+    listaTareas.insertBefore(li, listaTareas.firstChild);
+
+    // Limpiar el campo de entrada
+    nuevaTarea.value = "";
+
+    // Agregar un evento para marcar la tarea como completada
+    checkbox.addEventListener("change", function () {
+        if (this.checked) {
+            li.classList.add("completada");
+            listaTareas.appendChild(li);
+        } else {
+            li.classList.remove("completada");
+        }
+    });
+
+    // Agregar un evento para eliminar la tarea
+    eliminar.addEventListener("click", function () {
+        li.parentNode.removeChild(li);
+    });
 }
 
-function deleteTask(button) {
-    const li = button.parentElement;
-    li.remove();
-}
+// Agregar un evento al botón "Agregar"
+agregarTarea.addEventListener("click", agregarNuevaTarea);
 
-function toggleTaskCompletion(checkbox) {
-    const taskText = checkbox.nextElementSibling;
-    if (checkbox.checked) {
-        taskText.classList.add("completed");
-    } else {
-        taskText.classList.remove("completed");
+// Agregar un evento para detectar cuando se presiona la tecla Enter en el campo de entrada
+nuevaTarea.addEventListener("keydown", function (event) {
+    if (event.keyCode === 13) {
+        agregarNuevaTarea();
     }
-}
+});
+
 
 
 
