@@ -1,5 +1,222 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #ffdfdf; /* Fondo rosadito */
 }
+
+.container {
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin-top: 20px; /* Espacio superior */
+    width: 70%; /* Ancho del contenedor */
+    max-width: 600px; /* Ancho máximo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 40px;
+    margin: 20px;
+    width: 100%; /* Ancho al 100% del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+#nueva-tarea {
+    justify-content: center;
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 15px;
+}
+
+#agregar-tarea {
+    padding: 20px 20px;
+    background-color: #09d4ee;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+#agregar-tarea i {
+    margin-right: 5px;
+}
+
+#agregar-tarea span {
+    display: inline-block;
+}
+
+#lista-tareas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 50%;
+}
+
+#lista-tareas li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+#lista-tareas li input {
+    margin-right: 10px;
+}
+
+#lista-tareas li label {
+    cursor: pointer;
+    flex: 1;
+    text-align: left;
+}
+
+#lista-tareas li .eliminar {
+    padding: 5px 10px;
+    background-color: #09d4ee;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    color: white;
+}
+
+#lista-tareas li.completada {
+    background-color: #09d3ee2c;
+    border-left: 5px solid #09d4ee; /* Color fuerte en el borde izquierdo */
+}
+
+#lista-tareas li.completada label {
+    text-decoration: line-through;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+    #lista-tareas {
+        width: 90%;
+    }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+    #lista-tareas {
+        width: 80%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .container {
+        width: 70%;
+    }
+    #lista-tareas {
+        width: 70%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    img {
+        width: 80%;
+        margin: 10px;
+    }
+    .input-container {
+        width: 90%;
+    }
+
+    #nueva-tarea {
+        font-size: 14px;
+    }
+
+    #agregar-tarea {
+        padding: 15px;
+    }
+
+    #lista-tareas {
+        width: 90%;
+    }
+}
+
+/* Estilos para tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+    img {
+        width: 60%;
+        margin: 15px;
+    }
+    .input-container {
+        width: 80%;
+    }
+
+    #nueva-tarea {
+        font-size: 16px;
+    }
+
+    #agregar-tarea {
+        padding: 18px;
+    }
+
+    #lista-tareas {
+        width: 80%;
+    }
+}
+
+/* Estilos para escritorios */
+@media (min-width: 1025px) {
+    img {
+        width: 40%;
+        margin: 20px;
+    }
+    .input-container {
+        width: 60%;
+    }
+
+    #nueva-tarea {
+        font-size: 18px;
+    }
+
+    #agregar-tarea {
+        padding: 20px;
+    }
+
+    #lista-tareas {
+        width: 50%;
+    }
+}
+
+
+
+
+
+
+  
+    
+
+  
+  
